@@ -12,6 +12,9 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ['var(--font-inter)']
+      },
+      colors: {
+        customBlue: '#35C3F0',
       }
     },
   },
