@@ -1,62 +1,32 @@
 import Image from "next/image"
 import ButtonOne from "@/components/ButtonOne"
-import FormInput from "@/components/FormInput"
 
 const Signup = () => {
     return (
         <div>
-            <div>
-                <Image src="/2678153.jpg" width={300} height={300} className />
+            <div className="">
+                <Image src="/Welcome-image.svg" width={600} height={500} className="" />
             </div>
 
-            <div className="py-10">
-                <h1>Sign up</h1>
+            <div className="px-12">
+                <h1 className=" text-7xl ">Sign up</h1>
+                <form action="/send-data-here" method="post">
+                    <label for="roll">Roll Number</label>
+                    <input
+                        type="text"
+                        id="roll"
+                        name="roll"
+                        required
+                        minlength="10"
+                        maxlength="20"
+                    />
+                    <label for="name">Name:</label>
+                    <input type="text" id="name" name="name" required />
+                    <button type="submit">Submit</button>
+                </form>
 
 
-                <div className="">
-                    <h2>Don't have an account</h2>
-                    <span>Sign up here</span>
-                    <form>
-                        <FormInput
-                            label="User Name"
-                            type="text"
-                            required
-                            // onChange={handelChange}
-                            name="userName"
-                        // value={userName}
-                        />
 
-                        <FormInput
-                            label="Email"
-                            type="email"
-                            required
-                            // onChange={handelChange}
-                            name="email"
-                        // value={email}
-                        />
-
-                        <FormInput
-                            label="Password"
-                            type="password"
-                            required
-                            // onChange={handelChange}
-                            name="password"
-                        // value={password}
-                        />
-
-                        <FormInput
-                            label="Confirm Password"
-                            type="password"
-                            required
-                            // onChange={handelChange}
-                            name="confirmPassword"
-                        // value={confirmPassword}
-                        />
-
-                        {/* <Button type="submit">Sign up</Button> */}
-                        <ButtonOne />
-                    </form>
-                </div>
                 {/* <ButtonOne /> */}
 
             </div>
