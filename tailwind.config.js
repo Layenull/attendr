@@ -15,6 +15,11 @@ module.exports = {
       },
       colors: {
         customBlue: '#35C3F0',
+      },
+
+      backgroundImage: {
+        'graduation': "url('../public/Graduation.png')",
+
       }
     },
   },

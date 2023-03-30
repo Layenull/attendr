@@ -9,14 +9,20 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className="custom-img flex flex-col bg-center bg-cover">
+        <div className=" bg-no-repeat bg-center bg-cover relative bg-graduation">
+            {/* <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " /> */}
 
             {/* <label className="mb-2 font-bold text-lg " htmlFor="radio-options">
                 What level are you in?
             </label> */}
-            <h1 className="relative w-56 top-5 px-6">What level are you in?</h1>
+
+            <h1 className="relative w-56 top-5 px-6 text">What level are you in?</h1>
+
 
             <div className="flex flex-col space-y-12 px-6 py-48 font-bold text-xl">
+
+
+
                 <label className="inline-flex items-center">
                     <input
                         type="radio"
