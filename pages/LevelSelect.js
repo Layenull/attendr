@@ -10,6 +10,7 @@ const LevelSelect = () => {
 
     return (
         <div className=" bg-no-repeat bg-center bg-cover relative bg-graduation">
+            {/* <div className=" absolute top-0 left-0 right-0 bottom-0 bg-black/20" /> */}
             {/* <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " /> */}
 
             {/* <label className="mb-2 font-bold text-lg " htmlFor="radio-options">
@@ -82,7 +83,7 @@ const LevelSelect = () => {
             </div>
 
             <div className=' relative flex justify-center bottom-16 '>
-                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-xl ">
                     Next
                 </button>
             </div>

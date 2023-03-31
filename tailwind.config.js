@@ -18,7 +18,9 @@ module.exports = {
       },
 
       backgroundImage: {
-        'graduation': "url('../public/Graduation.png')",
+        'graduation': "url('../public/Graduation-rafiki.png')",
+        // 'opacity': "0.4",
+
 
       }
     },
