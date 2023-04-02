@@ -9,7 +9,7 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className=" bg-no-repeat bg-center bg-cover relative bg-graduation">
+        <div className="bg-cover bg-center bg-graduation ">
             {/* <div className=" absolute top-0 left-0 right-0 bottom-0 bg-black/20" /> */}
             {/* <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " /> */}
 
@@ -17,10 +17,10 @@ const LevelSelect = () => {
                 What level are you in?
             </label> */}
 
-            <h1 className="relative w-56 top-5 px-6 text">What level are you in?</h1>
+            <h1 className="relative top-9 px-6 font-extrabold text-4xl">What level are you in?</h1>
 
 
-            <div className="flex flex-col space-y-12 px-6 py-48 font-bold text-xl">
+            <div className="flex flex-col space-y-12 px-8 py-56 font-bold text-2xl">
 
 
 
@@ -82,7 +82,7 @@ const LevelSelect = () => {
 
             </div>
 
-            <div className=' relative flex justify-center bottom-16 '>
+            <div className=' flex justify-center relative bottom-20'>
                 <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-xl ">
                     Next
                 </button>

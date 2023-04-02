@@ -46,7 +46,7 @@ export default function LoginForm() {
 
 
             <div className='relative flex flex-col space-y-9 bottom-8 px-6 '>
-                <span><h1 className='w-3'>Welcome,Login Now </h1></span>
+                <h1 className='w-3 font-extrabold text-4xl'>Welcome,Login Now </h1>
 
 
 
@@ -97,7 +97,7 @@ export default function LoginForm() {
                             {error}
                         </div>
                     )}
-                    <div className=' relative flex justify-center top-20  py-20'>
+                    <div className=' relative flex justify-center top-28  py-20'>
                         <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
                             Login
                         </button>

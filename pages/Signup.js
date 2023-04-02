@@ -44,8 +44,8 @@ export default function Signup() {
 
 
 
-            <div className='relative flex flex-col space-y-9 bottom-16 px-6 '>
-                <span><h1>Sign up </h1></span>
+            <div className='relative flex flex-col space-y-9 bottom-12  px-6 leading-10'>
+                <h1 className='font-extrabold text-4xl pb-2'>Sign up </h1>
 
 
 
@@ -124,7 +124,7 @@ export default function Signup() {
                     )}
 
 
-                    <div className='flex flex-col text-sm py-8'>
+                    <div className='flex flex-col text-sm pt-20 pb-8'>
                         <p>By signing up you, agree to our <span>Terms & Conditions</span> and <span>Privacy policy</span>
                         </p>
 
