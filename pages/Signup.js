@@ -4,6 +4,7 @@ import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
 import { CiUser } from "react-icons/ci"
 import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
+import Link from 'next/link';
 
 export default function Signup() {
     const [userName, setUserName] = useState('');
@@ -140,13 +141,21 @@ export default function Signup() {
 
                     </div>
 
-
+                    {/* 
                     <div className='flex justify-center'>
+                        <div>
+                            <link href="/LevelSelect" passHref>
+                                <a>
+                                    <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                        Continue
+                                    </button>
 
-                        <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                            Continue
-                        </button>
-                    </div>
+                                </a>
+                            </link>
+
+                        </div>
+                    </div> */}
+
                 </form>
             </div>
         </div>
