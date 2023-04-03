@@ -1,6 +1,6 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import ButtonOne from '@/components/ButtonOne'
+import ButtonOne from '@/components/button'
 
 
 

@@ -19,7 +19,8 @@ module.exports = {
 
       backgroundImage: {
         'graduation': "url('../public/Graduation-rafiki.png')",
-        // 'opacity': "0.4",
+        'scientist': "url('../public/Medical research-rafiki.png')",
+        'creative': "url('../public/Creative team-rafiki.png')",
 
 
       }

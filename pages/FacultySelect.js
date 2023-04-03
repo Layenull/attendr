@@ -22,12 +22,12 @@ const FacultySelect = () => {
             <div className=' flex flex-col justify-center pt-32 '>
 
                 <div className='flex justify-center'>
-                    <SelectionCard />
+                    <SelectionCard text="Basic Medical and Applied Sciences" bgImage="bg-scientist" />
                 </div>
 
 
                 <div className='flex justify-center pt-20 '>
-                    <SelectionCard />
+                    <SelectionCard text="Art, Management and Social Sciences" bgImage="bg-creative" />
                 </div>
 
             </div>
@@ -35,28 +35,24 @@ const FacultySelect = () => {
             {/* End-Faculty-selection-cards */}
 
 
-
-
-            {/* <div>
-                <h1>Welcome to my app!</h1>
-                <customButton href="/contact" text="Contact Us" />
-            </div> */}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     )
 }
 
