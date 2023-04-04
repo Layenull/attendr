@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
 import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
+import customButton from '@/components/customButton';
 
 
 // import { HiOutlineLockClosed, MailIcon } from '@heroicons/react/solid';

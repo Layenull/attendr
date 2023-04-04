@@ -4,7 +4,7 @@ import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
 import { CiUser } from "react-icons/ci"
 import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
-import Link from 'next/link';
+import customButton from '@/components/customButton';
 
 export default function Signup() {
     const [userName, setUserName] = useState('');
@@ -141,20 +141,26 @@ export default function Signup() {
 
                     </div>
 
-                    {/* 
-                    <div className='flex justify-center'>
-                        <div>
-                            <link href="/LevelSelect" passHref>
-                                <a>
-                                    <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                                        Continue
-                                    </button>
 
-                                </a>
-                            </link>
+                    {/* <div className='flex justify-center'>
+                        <div>
+                            <Link href="/LevelSelect" passHref>
+
+                                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                    Continue
+                                </button>
+
+
+                            </Link>
 
                         </div>
                     </div> */}
+
+                    <div>
+                        <customButton name='Continue' />
+
+                    </div>
+
 
 
 
