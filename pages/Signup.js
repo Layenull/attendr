@@ -3,8 +3,9 @@ import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
 import { CiUser } from "react-icons/ci"
-import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
 import customButton from '@/components/customButton';
+import Link from 'next/link';
+
 
 export default function Signup() {
     const [userName, setUserName] = useState('');
@@ -47,6 +48,8 @@ export default function Signup() {
 
             <div className='relative flex flex-col space-y-9 bottom-12  px-6 leading-10'>
                 <h1 className='font-extrabold text-4xl pb-2'>Sign up </h1>
+
+
 
 
 
@@ -126,40 +129,43 @@ export default function Signup() {
 
 
                     <div className='flex flex-col text-sm pt-20 pb-8'>
-                        <p>By signing up you, agree to our <span>Terms & Conditions</span> and <span>Privacy policy</span>
+                        <p>By signing up you, agree to our <span className='text-customBlue' >Terms & Conditions</span> and <span className='text-customBlue'>Privacy policy</span>
                         </p>
 
                         <div className='relative bottom-4'>
                             <span className='flex justify-center'><p>or</p></span>
 
-                            <p className='flex justify-center'>Already have an account?<span> Log in</span></p>
 
                         </div>
 
+                        <p className='flex justify-center'>Already have an account?
+                            <Link href="/loginForm"> <span className='text-customBlue'> Log in</span></Link>
+                        </p>
 
 
 
                     </div>
 
 
-                    {/* <div className='flex justify-center'>
+                    <div className='flex justify-center'>
                         <div>
-                            <Link href="/LevelSelect" passHref>
+                            <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                Continue
+                            </button>
+                            {/* <Link href="/LevelSelect" passHref>
 
-                                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                                    Continue
-                                </button>
+                            </Link> */}
 
 
-                            </Link>
 
                         </div>
-                    </div> */}
-
-                    <div>
-                        <customButton name='Continue' />
-
                     </div>
+
+
+                    <customButton name='Continue' />
+
+
+
 
 
 

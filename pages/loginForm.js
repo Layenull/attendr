@@ -99,6 +99,7 @@ export default function LoginForm() {
                         </div>
                     )}
                     <div className=' relative flex justify-center top-28  py-20'>
+
                         <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
                             Login
                         </button>
