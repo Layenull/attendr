@@ -20,7 +20,7 @@ const ProgramSelect = () => {
             <div className=' flex flex-col justify-center py-16 '>
 
                 <div className='flex justify-center'>
-                    <ProgrammeCard text="Art, Management and Social Sciences" bgImage="bg-creative" link="/DepartmentSelect" />
+                    <ProgrammeCard text="Art, Management and Social Sciences" bgImage="bg-creative" link="/SelectLevel" />
                 </div>
 
 
