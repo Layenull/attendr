@@ -1,6 +1,9 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import customButton from '@/components/customButton'
+import Link from 'next/link'
+
+
 
 
 
@@ -17,7 +20,10 @@ export default function Home() {
       </Head>
       <main className=' bg-white px-10 md:px-20 lg:px-40'>
         <h1>hello</h1>
-        <customButton />
+
+
+
+
 
 
 

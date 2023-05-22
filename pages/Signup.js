@@ -13,29 +13,51 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
 
-    const handleLogin = async (e) => {
+    const handleSignUp = async (e) => {
         e.preventDefault();
 
-        try {
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ userName, email, password })
-            });
-
-            if (res.ok) {
-                // Redirect to dashboard
-                window.location.href = '/dashboard';
-            } else {
-                // Display error message
-                setError('Invalid email or password');
-            }
-        } catch (err) {
-            console.error(err);
-            setError('Something went wrong');
+        // Validate the input fields
+        if (!userName || !email || !password) {
+            setError('Please fill in all the fields.');
+            return;
         }
+
+        // Save the user data to your preferred state management solution
+        const userData = {
+            userName,
+            email,
+            password
+        };
+
+        // Reset the form
+        setUserName('');
+        setEmail('');
+        setPassword('');
+        setError('');
+
+
+
+        // try {
+        //     const res = await fetch('/api/login', {
+        //          method: 'POST',
+        //          headers: {
+        //              'Content-Type': 'application/json'
+        //          },
+
+        //             body: JSON.stringify({ userName, email, password })
+        //         });
+
+        //     if (res.ok) {
+        //         // Redirect to dashboard
+        //         window.location.href = '/dashboard';
+        //     } else {
+        //         // Display error message
+        //         setError('Invalid email or password');
+        //     }
+        // } catch (err) {
+        //     console.error(err);
+        //     setError('Something went wrong');
+        // }
     }
 
     return (
@@ -54,7 +76,7 @@ export default function Signup() {
 
 
 
-                <form onSubmit={handleLogin}>
+                <form onSubmit={handleSignUp}>
 
                     <div className="mb-4">
                         <label htmlFor="email" className="sr-only">
@@ -122,7 +144,7 @@ export default function Signup() {
                         </div>
                     </div>
                     {error && (
-                        <div className="mb-4 text-red-500">
+                        <div className=" relative top-8 text-red-500">
                             {error}
                         </div>
                     )}
@@ -147,22 +169,24 @@ export default function Signup() {
                     </div>
 
 
-                    <div className='flex justify-center'>
+                    <div className='relative left-11'>
                         <div>
-                            <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                                Continue
-                            </button>
+                            <Link href="/FacultySelect">
+                                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                    Continue
+                                </button>
+                            </Link>
                             {/* <Link href="/LevelSelect" passHref>
 
                             </Link> */}
-
-
-
                         </div>
                     </div>
 
 
-                    <customButton name='Continue' />
+
+
+
+                    {/* <customButton name='Continue' /> */}
 
 
 

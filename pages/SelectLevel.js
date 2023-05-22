@@ -1,9 +1,8 @@
-import React from "react";
-import { useState } from "react";
-import Link from "next/link";
+import React from 'react'
+import { useState } from 'react';
+import Link from 'next/link';
 
-
-const LevelSelect = () => {
+const SelectLevel = () => {
     const [selectedOption, setSelectedOption] = useState("");
 
     const handleOptionChange = (event) => {
@@ -11,19 +10,15 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className="bg-cover bg-center bg-graduation ">
-            {/* <div className=" absolute top-0 left-0 right-0 bottom-0 bg-black/20" /> */}
-            {/* <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " /> */}
-
-            {/* <label className="mb-2 font-bold text-lg " htmlFor="radio-options">
-                What level are you in?
-            </label> */}
-
-            <h1 className="relative top-9 px-6 font-extrabold text-4xl">What level are you in?</h1>
+        <div className='bg-graduation bg-contain bg-no-repeat w-full h-full bg center'>
+            <h1 className='relative top-9 px-6 font-extrabold text-4xl'>
+                what level are you in?
+            </h1>
 
 
-            {/* <div className="flex flex-col space-y-12 px-8 py-56 font-bold text-2xl"> */}
-            <div className="flex flex-col space-y-12 px-8 py-56 font-bold text-2xl">
+            {/* Radio-input form */}
+
+            <div className="flex flex-col relative top-64 space-y-12 px-8 font-bold text-2xl">
 
 
 
@@ -83,19 +78,23 @@ const LevelSelect = () => {
                     <span className="ml-2">500</span>
                 </label>
 
-            </div>
+                {/* Button ////////////////////////////// */}
 
-            <div className=' relative left-11 '>
-                <div>
-                    <Link href="/SemesterSelect">
-                        <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                            Next
-                        </button>
-                    </Link>
+                <div className=' relative left-11 top-16 '>
+                    <div>
+                        <Link href="/SemesterSelect">
+                            <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                Next
+                            </button>
+                        </Link>
+                    </div>
                 </div>
-            </div>
-        </div>
-    );
-};
 
-export default LevelSelect;
+            </div>
+
+
+        </div>
+    )
+}
+
+export default SelectLevel
