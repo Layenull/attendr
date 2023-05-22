@@ -15,12 +15,12 @@ const FacultySelect = () => {
                 {/* The arrow back navigation button is added here just for easy navigation to the sign up page and would not be included in the main app */}
 
                 <Link href="/Signup">
-                    <HiOutlineArrowNarrowLeft className=' relative left-6 top-2 text-5xl' />
+                    <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
                 </Link>
 
                 {/* The arrow back navigation button is added here just for easy navigation to the sign up page and would not be included in the main app */}
 
-                <h1 className="font-extrabold text-3xl relative w-56 top-5 px-6 text">Select your Faculty</h1>
+                <h1 className="font-extrabold text-3xl relative w-56 bottom-4 px-6 text">Select your Faculty</h1>
 
             </div>
 
@@ -28,35 +28,19 @@ const FacultySelect = () => {
 
 
             {/* faculty-selection-cards */}
-            <div className='flex flex-col justify-center pt-32 '>
+            <div className='flex flex-col justify-center py-16 '>
 
                 <div className='flex justify-center'>
-                    <Link href="/DepartmentSelect" >
-                        <SelectionCard text="Basic Medical and Applied Sciences" bgImage="bg-scientist" />
-                    </Link>
-
+                    <SelectionCard text="Basic Medical and Applied Sciences" bgImage="bg-scientist" link="/DepartmentSelect" />
                 </div>
 
 
-                <div className='flex justify-center pt-20'>
-                    <Link href="/DepartmentSelect" >
-                        <SelectionCard text="Art, Management and Social Sciences" bgImage="bg-creative" />
-                    </Link>
 
+
+                <div className='flex justify-center py-8'>
+                    <SelectionCard text="Art, Management and Social Sciences" bgImage="bg-creative" link="/DepartmentSelect" />
                 </div>
 
-                {/* <div className='flex justify-center'>
-                    <Link href="/DepartmentSelect" >
-                        <SelectionCard text="Basic Medical and Applied Sciences" bgImage="bg-scientist" />
-                    </Link>
-                </div>
-
-
-                <div className='flex justify-center pt-20 '>
-                    <Link href="/DepartmentSelect">
-                        <SelectionCard text="Art, Management and Social Sciences" bgImage="bg-creative" />
-                    </Link>
-                </div> */}
 
             </div>
 

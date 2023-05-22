@@ -61,7 +61,7 @@ export default function Signup() {
     }
 
     return (
-        <div className="">
+        <div className=" overflow-hidden">
             <div>
                 <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " />
             </div>
@@ -155,7 +155,7 @@ export default function Signup() {
                         </p>
 
                         <div className='relative bottom-4'>
-                            <span className='flex justify-center'><p>or</p></span>
+                            <span className='flex justify-center relative top-3'><p>or</p></span>
 
 
                         </div>
