@@ -8,7 +8,7 @@ import Link from 'next/link'
 
 const FacultySelect = () => {
     return (
-        <div className='flex flex-col justify-center bg-center bg-full '>
+        <div className='overflow-hidden flex flex-col justify-center bg-center bg-full '>
 
             <div className='flex flex-col justify-evenly relative top-10'>
 

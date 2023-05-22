@@ -6,7 +6,7 @@ import ProgrammeCard from '@/components/ProgrammeCard'
 const ProgramSelect = () => {
     return (
         <div>
-            <div className='flex flex-col justify-evenly relative top-10'>
+            <div className='overflow-hidden flex flex-col justify-evenly relative top-10'>
                 <Link href="/DepartmentSelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
                 </Link>
