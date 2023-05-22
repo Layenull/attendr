@@ -19,7 +19,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className=' bg-white px-10 md:px-20 lg:px-40'>
-        <h1>hello</h1>
+        <h1 className='font-extrabold text-3xl relative w-56 top-5 px-6 py-5'>Welcome to Attendr</h1>
+        {/* /////////////////// */}
+        <div className='flex flex-col justify-center py-52 '>
+          <p className=' text-3xl font-semibold'>Your Trinity university student attendance management companion</p>
+          <p className='text-2xl py-5'>Click continue to register</p>
+        </div>
+
+        <div className='relative top-9 left-11'>
+          <div>
+            <Link href="/Signup">
+              <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                Continue
+              </button>
+            </Link>
+            {/* <Link href="/LevelSelect" passHref>
+
+                            </Link> */}
+          </div>
+        </div>
+
 
 
 
