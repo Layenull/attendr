@@ -41,7 +41,7 @@ export default function LoginForm() {
     return (
         <div className="">
             <div>
-                <Image src="/login-image.jpg" width={400} height={400} className="relative bottom-6 " />
+                <Image src="/login-image.jpg" width={400} height={400} className="relative bottom-6 " alt='signup' />
             </div>
 
 

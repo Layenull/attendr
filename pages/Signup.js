@@ -63,7 +63,7 @@ export default function Signup() {
     return (
         <div className=" overflow-hidden">
             <div>
-                <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " />
+                <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " alt='signup' />
             </div>
 
 
