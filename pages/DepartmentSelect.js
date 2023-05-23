@@ -7,7 +7,7 @@ import DeptCard from '@/components/DeptCard'
 
 const DepartmentSelect = () => {
     return (
-        <div>
+        <div className="bg-gradblue bg-cover bg-center bg-no-repeat h-screen ">
             <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/FacultySelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' link="/FacultySelect" />
@@ -24,7 +24,7 @@ const DepartmentSelect = () => {
             <div className=' flex flex-col justify-center py-16 '>
 
                 <div className='flex justify-center'>
-                    <DeptCard text="computer & information sciences" bgImage="bg-scientist" link="/ProgramSelect" />
+                    <DeptCard text="computer & information sciences" bgImage="bg-scientist" link="/ProgramSelect" dptImage="bg-creative" />
                 </div>
 
 
