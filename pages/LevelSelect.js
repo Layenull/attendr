@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import Link from "next/link";
+import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
 
 
 const LevelSelect = () => {
@@ -11,21 +12,18 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className="bg-cover bg-center bg-graduation ">
-            {/* <div className=" absolute top-0 left-0 right-0 bottom-0 bg-black/20" /> */}
-            {/* <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " /> */}
-
-            {/* <label className="mb-2 font-bold text-lg " htmlFor="radio-options">
-                What level are you in?
-            </label> */}
-
-            <h1 className="relative top-9 px-6 font-extrabold text-4xl">What level are you in?</h1>
+        <div className="bg-cover bg-center h-screen bg-gradblue ">
+            <div className='overflow-hidden flex flex-col justify-evenly relative top-10'>
+                <Link href="/ProgramSelect">
+                    <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
+                </Link>
 
 
-            {/* <div className="flex flex-col space-y-12 px-8 py-56 font-bold text-2xl"> */}
-            <div className="flex flex-col space-y-12 px-8 py-56 font-bold text-2xl">
+                <h1 className="font-extrabold text-3xl relative w-56 bottom-4 px-6 text">What level are you in?</h1>
 
+            </div>
 
+            <div className="flex flex-col space-y-14 px-12 py-20 font-bold text-2xl">
 
                 <label className="inline-flex items-center">
                     <input
@@ -38,6 +36,8 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">100</span>
                 </label>
+                {/* //////////////////////////// */}
+
                 <label className="inline-flex items-center">
                     <input
                         type="radio"
@@ -49,6 +49,8 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">200</span>
                 </label>
+                {/* /////////////////////// */}
+
                 <label className="inline-flex items-center">
                     <input
                         type="radio"
@@ -60,6 +62,8 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">300</span>
                 </label>
+                {/* ///////////////// */}
+
                 <label className="inline-flex items-center">
                     <input
                         type="radio"
@@ -71,6 +75,8 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">400</span>
                 </label>
+                {/* ////////////////////// */}
+
                 <label className="inline-flex items-center">
                     <input
                         type="radio"
@@ -85,14 +91,12 @@ const LevelSelect = () => {
 
             </div>
 
-            <div className=' relative left-11 '>
-                <div>
-                    <Link href="/SemesterSelect">
-                        <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                            Next
-                        </button>
-                    </Link>
-                </div>
+            <div>
+                <Link className="flex justify-center py-20" href="/SemesterSelect">
+                    <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                        Next
+                    </button>
+                </Link>
             </div>
         </div>
     );

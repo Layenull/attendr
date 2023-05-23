@@ -21,6 +21,10 @@ module.exports = {
         'graduation': "url('../public/Graduation-rafiki.png')",
         'scientist': "url('../public/Medical research-rafiki.png')",
         'creative': "url('../public/Creative team-rafiki.png')",
+        'morty': "url('../public/morty.png')",
+        'gradblue': "url('../public/gradblue.jpg')",
+        'cis': "url('../public/computer&infoscience.jpg')",
+
 
 
       }
