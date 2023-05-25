@@ -18,7 +18,7 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=' overflow-hidden bg-white px-10 md:px-20 lg:px-40'>
+      <main className='  bg-white px-10 md:px-20 lg:px-40'>
         <h1 className='font-extrabold text-3xl relative w-56 top-5 px-6 py-5'>Welcome to Attendr</h1>
         {/* /////////////////// */}
         <div className='flex flex-col justify-center py-52 '>
