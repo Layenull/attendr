@@ -10,7 +10,7 @@ const ProgramSelect = () => {
         <div className="bg-gradblue bg-cover bg-center bg-no-repeat h-screen ">
             {/* <Image src={backgroundImage} cover fill alt="Background Image" /> */}
 
-            <div className='overflow-hidden flex flex-col justify-evenly relative top-10'>
+            <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/DepartmentSelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
                 </Link>
