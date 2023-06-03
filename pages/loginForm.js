@@ -39,15 +39,18 @@ export default function LoginForm() {
     }
 
     return (
-        <div className="">
+        <div className="overflow-hidden">
             <div>
-                <Image src="/login-image.jpg" width={400} height={400} className="relative bottom-6 " alt='signup' />
+                <Image src="/login-image.jpg" width={400} height={400} className="relative bottom-10 " alt='signup' />
             </div>
 
 
 
-            <div className='relative flex flex-col space-y-9 bottom-8 px-6 '>
-                <h1 className='w-3 font-extrabold text-4xl'>Welcome,Login Now </h1>
+            {/* <div className='relative flex flex-col space-y-9 bottom-8 px-6 '>
+                <h1 className='w-3 font-extrabold text-4xl'>Welcome,Login Now </h1> */}
+
+            <div className='flex flex-col relative left-4  '>
+                <h1 className='relative bottom-20 w-3 font-extrabold text-4xl'>Welcome,Login Now </h1>
 
 
 
@@ -98,7 +101,8 @@ export default function LoginForm() {
                             {error}
                         </div>
                     )}
-                    <div className=' relative flex justify-center top-28  py-20'>
+                    <div className=' relative flex left-7 pt-40'>
+                        {/* <div className=' relative flex justify-center top-28  py-20'> */}
 
                         <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
                             Login

@@ -12,8 +12,8 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className="bg-cover bg-center h-screen bg-gradblue ">
-            <div className='overflow-hidden flex flex-col justify-evenly relative top-10'>
+        <div className="bg-cover bg-center h-full bg-gradblue ">
+            <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/ProgramSelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
                 </Link>

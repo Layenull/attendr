@@ -63,13 +63,16 @@ export default function Signup() {
     return (
         <div className=" overflow-hidden">
             <div>
-                <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-6 " alt='signup' />
+                <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-10 " alt='signup' />
             </div>
 
-
+            {/* 
 
             <div className='relative flex flex-col space-y-9 bottom-12  px-6 leading-10'>
-                <h1 className='font-extrabold text-4xl pb-2'>Sign up </h1>
+                <h1 className='font-extrabold text-4xl pb-2'>Sign up </h1> */}
+
+            <div className='flex flex-col relative left-4 '>
+                <h1 className='relative bottom-20 font-extrabold text-4xl '>Sign up </h1>
 
 
 
@@ -169,7 +172,7 @@ export default function Signup() {
                     </div>
 
 
-                    <div className='relative left-11'>
+                    <div className='relative left-7'>
                         <div>
                             <Link href="/FacultySelect">
                                 <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
