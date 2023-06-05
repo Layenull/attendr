@@ -2,8 +2,8 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
-import { CiUser } from "react-icons/ci"
-import customButton from '@/components/customButton';
+import { CiUser } from "react-icons/ci";
+import { useRouter } from 'next/router';
 import Link from 'next/link';
 
 
@@ -12,53 +12,71 @@ export default function Signup() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const router = useRouter();
 
-    const handleSignUp = async (e) => {
+
+    const handleSignUp = (e) => {
         e.preventDefault();
 
-        // Validate the input fields
+        // Perform form validation
         if (!userName || !email || !password) {
             setError('Please fill in all the fields.');
             return;
         }
 
-        // Save the user data to your preferred state management solution
-        const userData = {
-            userName,
-            email,
-            password
-        };
-
-        // Reset the form
-        setUserName('');
-        setEmail('');
-        setPassword('');
+        // Clear any previous error message
         setError('');
 
+        // Navigate to the next page
+        router.push('/FacultySelect');
+    };
+
+    // const handleSignUp = async (e) => {
+    //     e.preventDefault();
+
+    //     // Validate the input fields
+    //     if (!userName || !email || !password) {
+    //         setError('Please fill in all the fields.');
+    //         return;
+    //     }
+
+    //     // Save the user data to your preferred state management solution
+    //     const userData = {
+    //         userName,
+    //         email,
+    //         password
+    //     };
+
+    //     // Reset the form
+    //     setUserName('');
+    //     setEmail('');
+    //     setPassword('');
+    //     setError('');
 
 
-        // try {
-        //     const res = await fetch('/api/login', {
-        //          method: 'POST',
-        //          headers: {
-        //              'Content-Type': 'application/json'
-        //          },
 
-        //             body: JSON.stringify({ userName, email, password })
-        //         });
+    //     try {
+    //         const res = await fetch('/api/login', {
+    //              method: 'POST',
+    //              headers: {
+    //                  'Content-Type': 'application/json'
+    //              },
 
-        //     if (res.ok) {
-        //         // Redirect to dashboard
-        //         window.location.href = '/dashboard';
-        //     } else {
-        //         // Display error message
-        //         setError('Invalid email or password');
-        //     }
-        // } catch (err) {
-        //     console.error(err);
-        //     setError('Something went wrong');
-        // }
-    }
+    //                 body: JSON.stringify({ userName, email, password })
+    //             });
+
+    //         if (res.ok) {
+    //             // Redirect to dashboard
+    //             window.location.href = '/dashboard';
+    //         } else {
+    //             // Display error message
+    //             setError('Invalid email or password');
+    //         }
+    //     } catch (err) {
+    //         console.error(err);
+    //         setError('Something went wrong');
+    //     }
+    // }
 
     return (
         <div className=" overflow-hidden">
@@ -66,10 +84,7 @@ export default function Signup() {
                 <Image src="/Welcome-image.svg" width={400} height={400} className="relative bottom-10 " alt='signup' />
             </div>
 
-            {/* 
 
-            <div className='relative flex flex-col space-y-9 bottom-12  px-6 leading-10'>
-                <h1 className='font-extrabold text-4xl pb-2'>Sign up </h1> */}
 
             <div className='flex flex-col relative left-4 '>
                 <h1 className='relative bottom-20 font-extrabold text-4xl '>Sign up </h1>
@@ -95,7 +110,7 @@ export default function Signup() {
                                 id="username"
                                 value={userName}
                                 onChange={(e) => setUserName(e.target.value)}
-                                className="block pl-10 sm:text-sm border-none"
+                                className="block pl-10 sm:text-sm border-none py-2 "
                                 placeholder="Username"
                                 required
                             />
@@ -118,7 +133,7 @@ export default function Signup() {
                                 id="email"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
-                                className="block pl-10 sm:text-sm border-none"
+                                className="block pl-10 sm:text-sm border-none py-2"
                                 placeholder="Email address"
                                 required
                             />
@@ -140,7 +155,7 @@ export default function Signup() {
                                 id="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none "
+                                className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none py-2 "
                                 placeholder="Password"
                                 required
                             />
@@ -153,7 +168,7 @@ export default function Signup() {
                     )}
 
 
-                    <div className='flex flex-col text-sm pt-20 pb-8'>
+                    <div className='flex flex-col text-sm pt-12 pb-8'>
                         <p>By signing up you, agree to our <span className='text-customBlue' >Terms & Conditions</span> and <span className='text-customBlue'>Privacy policy</span>
                         </p>
 
@@ -174,14 +189,11 @@ export default function Signup() {
 
                     <div className='relative left-7'>
                         <div>
-                            <Link href="/FacultySelect">
-                                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                                    Continue
-                                </button>
-                            </Link>
-                            {/* <Link href="/LevelSelect" passHref>
 
-                            </Link> */}
+                            <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+                                Continue
+                            </button>
+
                         </div>
                     </div>
 

@@ -97,7 +97,7 @@ export default function LoginForm() {
                         </div>
                     </div>
                     {error && (
-                        <div className="mb-4 text-red-500">
+                        <div className=" relative top-8 text-red-500">
                             {error}
                         </div>
                     )}
