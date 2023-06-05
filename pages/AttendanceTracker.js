@@ -4,7 +4,7 @@ import TrackCard from '@/components/TrackCard'
 
 const AttendanceTracker = () => {
     return (
-        <div className='flex justify-center pt-5'>
+        <div className='bg-gradblue bg-cover bg-center bg-no-repeat h-screen flex justify-center pt-5'>
             {/* <Searchbar /> */}
 
             <TrackCard />

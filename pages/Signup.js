@@ -97,7 +97,7 @@ export default function Signup() {
                 <form onSubmit={handleSignUp}>
 
                     <div className="mb-4">
-                        <label htmlFor="email" className="sr-only">
+                        <label htmlFor="username" className="sr-only">
                             Email
                         </label>
                         <div className="relative -top-8 ">

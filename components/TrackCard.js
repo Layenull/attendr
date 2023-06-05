@@ -15,7 +15,7 @@ const TrackCard = ({ progressValue = 70 }) => {
         return () => clearTimeout(delay);
     }, [progressValue]);
     return (
-        <div className='rounded-2xl border w-11/12 h-72'>
+        <div className=' rounded-2xl border-4 w-11/12 h-72'>
             <div className="p-6">
                 <p className="text-2xl text-customBlue  ">CSC 221</p>
                 <p className='text-xl font-semibold'>Computer Programming</p>
