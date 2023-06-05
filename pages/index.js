@@ -2,6 +2,7 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import customButton from '@/components/customButton'
 import Link from 'next/link'
+import Searchbar from '@/components/Searchbar'
 
 
 
@@ -20,6 +21,7 @@ export default function Home() {
       </Head>
       <main className='  bg-white px-10 md:px-20 lg:px-40'>
         <h1 className='font-extrabold text-3xl relative w-56 top-5 px-6 py-5'>Welcome to Attendr</h1>
+        <Searchbar />
         {/* /////////////////// */}
         <div className='flex flex-col justify-center py-52 '>
           <p className=' text-3xl font-semibold'>Your Trinity university student attendance management companion</p>

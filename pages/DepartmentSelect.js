@@ -2,6 +2,7 @@ import React from 'react'
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
 import Link from 'next/link'
 import DeptCard from '@/components/DeptCard'
+import Searchbar from '@/components/Searchbar'
 
 
 
@@ -16,6 +17,8 @@ const DepartmentSelect = () => {
                 <h1 className="font-extrabold text-3xl relative w-56 bottom-5 px-6 text">Select your Department</h1>
 
             </div>
+
+            <Searchbar />
 
 
 

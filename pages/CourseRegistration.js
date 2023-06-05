@@ -43,7 +43,7 @@ const CourseRegistration = () => {
             {/* button ////////////////////////////// */}
 
             <div>
-                <Link className="flex justify-center pt-72 " href="/SemesterSelect">
+                <Link className="flex justify-center pt-72 " href="#">
                     <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
                         Next
                     </button>
