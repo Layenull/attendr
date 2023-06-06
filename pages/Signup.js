@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
 import { CiUser } from "react-icons/ci";
+import { HiOutlineAcademicCap } from "react-icons/hi"
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 
@@ -10,6 +11,7 @@ import Link from 'next/link';
 export default function Signup() {
     const [userName, setUserName] = useState('');
     const [email, setEmail] = useState('');
+    const [matricNo, setMatricNo] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const router = useRouter();
@@ -19,7 +21,7 @@ export default function Signup() {
         e.preventDefault();
 
         // Perform form validation
-        if (!userName || !email || !password) {
+        if (!userName || !email || !matricNo || !password) {
             setError('Please fill in all the fields.');
             return;
         }
@@ -31,52 +33,7 @@ export default function Signup() {
         router.push('/FacultySelect');
     };
 
-    // const handleSignUp = async (e) => {
-    //     e.preventDefault();
 
-    //     // Validate the input fields
-    //     if (!userName || !email || !password) {
-    //         setError('Please fill in all the fields.');
-    //         return;
-    //     }
-
-    //     // Save the user data to your preferred state management solution
-    //     const userData = {
-    //         userName,
-    //         email,
-    //         password
-    //     };
-
-    //     // Reset the form
-    //     setUserName('');
-    //     setEmail('');
-    //     setPassword('');
-    //     setError('');
-
-
-
-    //     try {
-    //         const res = await fetch('/api/login', {
-    //              method: 'POST',
-    //              headers: {
-    //                  'Content-Type': 'application/json'
-    //              },
-
-    //                 body: JSON.stringify({ userName, email, password })
-    //             });
-
-    //         if (res.ok) {
-    //             // Redirect to dashboard
-    //             window.location.href = '/dashboard';
-    //         } else {
-    //             // Display error message
-    //             setError('Invalid email or password');
-    //         }
-    //     } catch (err) {
-    //         console.error(err);
-    //         setError('Something went wrong');
-    //     }
-    // }
 
     return (
         <div className=" overflow-hidden">
@@ -85,82 +42,105 @@ export default function Signup() {
             </div>
 
 
-
-            <div className='flex flex-col relative left-4 '>
+            <div className='flex flex-col relative  left-4 '>
                 <h1 className='relative bottom-20 font-extrabold text-4xl '>Sign up </h1>
 
 
-
-
-
-
                 <form onSubmit={handleSignUp}>
+                    <div className='flex flex-col relative bottom-14 space-y-8 '>
 
-                    <div className="mb-4">
-                        <label htmlFor="username" className="sr-only">
-                            Email
-                        </label>
-                        <div className="relative -top-8 ">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <CiUser className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                        <div className="">
+                            <label htmlFor="username" className="sr-only">
+                                Email
+                            </label>
+                            <div className=" flex items-center">
+                                <div className="">
+                                    <CiUser className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                </div>
+
+                                <input
+                                    type="text"
+                                    name="Username"
+                                    id="username"
+                                    value={userName}
+                                    onChange={(e) => setUserName(e.target.value)}
+                                    className="block pl-10 sm:text-sm border-none "
+                                    placeholder="Username"
+                                    required
+                                />
                             </div>
-                            <input
-                                type="text"
-                                name="Username"
-                                id="username"
-                                value={userName}
-                                onChange={(e) => setUserName(e.target.value)}
-                                className="block pl-10 sm:text-sm border-none py-2 "
-                                placeholder="Username"
-                                required
-                            />
                         </div>
+
+
+                        {/* email form field */}
+                        <div className="">
+                            <label htmlFor="email" className="sr-only">
+                                Email
+                            </label>
+                            <div className="flex items-center">
+                                <div className="">
+                                    <CiMail className="h-5 w-5 text-gray-400" aria-hidden="true" />
+                                </div>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    id="email"
+                                    value={email}
+                                    onChange={(e) => setEmail(e.target.value)}
+                                    className="block pl-10 sm:text-sm border-none "
+                                    placeholder="Email address"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+                        {/* matricnumber form field */}
+                        <div className="">
+                            <label htmlFor="matric-no" className="sr-only">
+                                Matric No
+                            </label>
+                            <div className="flex items-center">
+                                <div className=" ">
+                                    <HiOutlineAcademicCap className=" h-5 w-5 text-gray-400" aria-hidden="true" />
+                                </div>
+                                <input
+                                    type="matric-no"
+                                    name="matric-no"
+                                    id="matric-no"
+                                    value={matricNo}
+                                    onChange={(e) => setMatricNo(e.target.value)}
+                                    className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none  "
+                                    placeholder="matric no"
+                                    required
+                                />
+                            </div>
+                        </div>
+
+
+                        {/* password form field */}
+                        <div className="">
+                            <label htmlFor="password" className="sr-only">
+                                Password
+                            </label>
+                            <div className=" flex items-center">
+                                <div className="">
+                                    <HiOutlineLockClosed className=" h-5 w-5 text-gray-400" aria-hidden="true" />
+                                </div>
+                                <input
+                                    type="password"
+                                    name="password"
+                                    id="password"
+                                    value={password}
+                                    onChange={(e) => setPassword(e.target.value)}
+                                    className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none "
+                                    placeholder="Password"
+                                    required
+                                />
+                            </div>
+                        </div>
+
                     </div>
 
-
-                    {/* email form field */}
-                    <div className="mb-4">
-                        <label htmlFor="email" className="sr-only">
-                            Email
-                        </label>
-                        <div className="relative ">
-                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <CiMail className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            </div>
-                            <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                className="block pl-10 sm:text-sm border-none py-2"
-                                placeholder="Email address"
-                                required
-                            />
-                        </div>
-                    </div>
-
-                    {/* password form field */}
-                    <div className="mb-4">
-                        <label htmlFor="password" className="sr-only">
-                            Password
-                        </label>
-                        <div className="relative top-8 ">
-                            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <HiOutlineLockClosed className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
-                            </div>
-                            <input
-                                type="password"
-                                name="password"
-                                id="password"
-                                value={password}
-                                onChange={(e) => setPassword(e.target.value)}
-                                className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none py-2 "
-                                placeholder="Password"
-                                required
-                            />
-                        </div>
-                    </div>
                     {error && (
                         <div className=" relative top-8 text-red-500">
                             {error}
@@ -168,7 +148,7 @@ export default function Signup() {
                     )}
 
 
-                    <div className='flex flex-col text-sm pt-12 pb-8'>
+                    <div className='flex flex-col text-sm pt-5 pb-8'>
                         <p>By signing up you, agree to our <span className='text-customBlue' >Terms & Conditions</span> and <span className='text-customBlue'>Privacy policy</span>
                         </p>
 
@@ -197,29 +177,34 @@ export default function Signup() {
                         </div>
                     </div>
 
-
-
-
-
-                    {/* <customButton name='Continue' /> */}
-
-
-
-
-
-
-
-
                 </form>
+
+
             </div>
+
+
+
+
         </div>
-
-
-
-
 
 
 
 
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

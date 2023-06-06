@@ -9,7 +9,7 @@ import CoursesCard from '@/components/CoursesCard'
 
 const CourseRegistration = () => {
     return (
-        <div>
+        <div className='bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen'>
             <div className='flex justify-evenly relative pt-14 right-8'>
                 <Link href="/SemesterSelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
@@ -42,13 +42,13 @@ const CourseRegistration = () => {
 
             {/* button ////////////////////////////// */}
 
-            <div>
+            {/* <div>
                 <Link className="flex justify-center pt-72 " href="#">
                     <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
                         Next
                     </button>
                 </Link>
-            </div>
+            </div> */}
 
             {/* button ////////////////////////////// */}
 
