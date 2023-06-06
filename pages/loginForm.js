@@ -70,9 +70,9 @@ export default function LoginForm() {
 
 
                 <form onSubmit={handleLogin}>
-                    <div className="mb-4">
+                    <div className=" mb-11">
                         <label htmlFor="username" className="sr-only">
-                            Email
+                            Username
                         </label>
                         <div className="relative ">
                             <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
@@ -84,19 +84,21 @@ export default function LoginForm() {
                                 id="username"
                                 value={userName}
                                 onChange={(e) => setUserName(e.target.value)}
-                                className="block pl-10 sm:text-sm border-none"
+                                className="block pl-10 sm:text-sm border-none py-2 w-auto"
                                 placeholder="username"
                                 required
                             />
                         </div>
                     </div>
+
+
                     <div className="mb-4">
-                        <label htmlFor="password" className="sr-only">
+                        <label htmlFor="username" className="sr-only">
                             Password
                         </label>
-                        <div className="relative top-8 ">
-                            <div className=" absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                                <HiOutlineLockClosed className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
+                        <div className="relative  ">
+                            <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                < HiOutlineLockClosed className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
                             </div>
                             <input
                                 type="password"
@@ -104,18 +106,20 @@ export default function LoginForm() {
                                 id="password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
-                                className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none "
+                                className="block pl-10 sm:text-sm border-none py-2 w-auto"
                                 placeholder="Password"
                                 required
                             />
                         </div>
                     </div>
+
+
                     {error && (
                         <div className=" relative top-8 text-red-500">
                             {error}
                         </div>
                     )}
-                    <div className=' relative flex left-7 pt-40'>
+                    <div className=' relative flex left-7 pt-32'>
                         {/* <div className=' relative flex justify-center top-28  py-20'> */}
 
                         <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">

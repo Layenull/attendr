@@ -43,11 +43,11 @@ export default function Signup() {
 
 
             <div className='flex flex-col relative  left-4 '>
-                <h1 className='relative bottom-20 font-extrabold text-4xl '>Sign up </h1>
+                <h1 className='relative bottom-24 font-extrabold text-4xl '>Sign up </h1>
 
 
                 <form onSubmit={handleSignUp}>
-                    <div className='flex flex-col relative bottom-14 space-y-8 '>
+                    <div className='flex flex-col relative bottom-24 space-y-8 '>
 
                         <div className="">
                             <label htmlFor="username" className="sr-only">
@@ -64,7 +64,7 @@ export default function Signup() {
                                     id="username"
                                     value={userName}
                                     onChange={(e) => setUserName(e.target.value)}
-                                    className="block pl-10 sm:text-sm border-none "
+                                    className="block pl-10 sm:text-sm border-none py-2 w-auto "
                                     placeholder="Username"
                                     required
                                 />
@@ -87,7 +87,7 @@ export default function Signup() {
                                     id="email"
                                     value={email}
                                     onChange={(e) => setEmail(e.target.value)}
-                                    className="block pl-10 sm:text-sm border-none "
+                                    className="block pl-10 sm:text-sm border-none py-2 w-auto"
                                     placeholder="Email address"
                                     required
                                 />
@@ -109,7 +109,7 @@ export default function Signup() {
                                     id="matric-no"
                                     value={matricNo}
                                     onChange={(e) => setMatricNo(e.target.value)}
-                                    className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none  "
+                                    className="block pl-10 sm:text-sm border-none  py-2 w-auto"
                                     placeholder="matric no"
                                     required
                                 />
@@ -132,7 +132,7 @@ export default function Signup() {
                                     id="password"
                                     value={password}
                                     onChange={(e) => setPassword(e.target.value)}
-                                    className="focus:ring-indigo-500 focus:border-indigo-500 block pl-10 sm:text-sm border-none "
+                                    className=" block pl-10 sm:text-sm border-none py-2 w-auto "
                                     placeholder="Password"
                                     required
                                 />
@@ -148,7 +148,7 @@ export default function Signup() {
                     )}
 
 
-                    <div className='flex flex-col text-sm pt-5 pb-8'>
+                    <div className='flex flex-col text-sm relative bottom-10 '>
                         <p>By signing up you, agree to our <span className='text-customBlue' >Terms & Conditions</span> and <span className='text-customBlue'>Privacy policy</span>
                         </p>
 
@@ -167,7 +167,7 @@ export default function Signup() {
                     </div>
 
 
-                    <div className='relative left-7'>
+                    <div className='relative bottom-3 left-7'>
                         <div>
 
                             <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
