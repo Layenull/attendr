@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'next/link'
 const ProgrammeCard = ({ text, bgImage, link, prgImage }) => {
     return (
-        <div className={` bg-white rounded-3xl border w-11/12 h-36 overflow-hidden bg-cover  ${bgImage}`}>
+        <div className={` bg-slate-100  rounded-3xl border w-11/12 h-36 overflow-hidden bg-cover  ${bgImage}`}>
             <Link href={link}>
 
                 <div className="flex p-14">

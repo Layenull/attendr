@@ -2,40 +2,54 @@ import { useState } from 'react';
 import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
+import { useRouter } from 'next/router';
 import { imageConfigDefault } from 'next/dist/shared/lib/image-config';
 import customButton from '@/components/customButton';
+
 
 
 // import { HiOutlineLockClosed, MailIcon } from '@heroicons/react/solid';
 
 export default function LoginForm() {
-    const [email, setEmail] = useState('');
+    const [userName, setUserName] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
+    const router = useRouter();
 
     const handleLogin = async (e) => {
         e.preventDefault();
 
-        try {
-            const res = await fetch('/api/login', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ email, password })
-            });
-
-            if (res.ok) {
-                // Redirect to dashboard
-                window.location.href = '/dashboard';
-            } else {
-                // Display error message
-                setError('Invalid email or password');
-            }
-        } catch (err) {
-            console.error(err);
-            setError('Something went wrong');
+        // Perform form validation
+        if (!userName || !password) {
+            setError('Please fill in all the fields.');
+            return;
         }
+
+        // Clear any previous error message
+        setError('');
+
+        // try {
+        //     const res = await fetch('/api/login', {
+        //         method: 'POST',
+        //         headers: {
+        //             'Content-Type': 'application/json'
+        //         },
+        //         body: JSON.stringify({ email, password })
+        //     });
+
+        //     if (res.ok) {
+        //         // Redirect to dashboard
+        //         window.location.href = '/dashboard';
+        //     } else {
+        //         // Display error message
+        //         setError('Invalid email or password');
+        //     }
+        // } catch (err) {
+        //     console.error(err);
+        //     setError('Something went wrong');
+        // }
+
+        router.push('/AttendanceTracker');
     }
 
     return (
@@ -57,7 +71,7 @@ export default function LoginForm() {
 
                 <form onSubmit={handleLogin}>
                     <div className="mb-4">
-                        <label htmlFor="email" className="sr-only">
+                        <label htmlFor="username" className="sr-only">
                             Email
                         </label>
                         <div className="relative ">
@@ -65,13 +79,13 @@ export default function LoginForm() {
                                 <CiMail className=" relative right-3 h-5 w-5 text-gray-400" aria-hidden="true" />
                             </div>
                             <input
-                                type="email"
-                                name="email"
-                                id="email"
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
+                                type="username"
+                                name="username"
+                                id="username"
+                                value={userName}
+                                onChange={(e) => setUserName(e.target.value)}
                                 className="block pl-10 sm:text-sm border-none"
-                                placeholder="Email address"
+                                placeholder="username"
                                 required
                             />
                         </div>

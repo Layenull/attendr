@@ -1,18 +1,32 @@
 import React from "react";
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
 
 
 const LevelSelect = () => {
     const [selectedOption, setSelectedOption] = useState("");
+    const [isNextButtonDisabled, setIsNextButtonDisabled] = useState(true);
+    const router = useRouter();
 
     const handleOptionChange = (event) => {
         setSelectedOption(event.target.value);
+        setIsNextButtonDisabled(false);
+    };
+
+
+    const handleNextButtonClick = () => {
+        if (selectedOption !== "") {
+            router.push("/SemesterSelect");
+        } else {
+            console.log("Please select a level");
+        }
     };
 
     return (
-        <div className="bg-cover bg-center h-full bg-gradblue ">
+        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+
             <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/ProgramSelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
@@ -36,7 +50,7 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">100</span>
                 </label>
-                {/* //////////////////////////// */}
+
 
                 <label className="inline-flex items-center">
                     <input
@@ -49,7 +63,7 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">200</span>
                 </label>
-                {/* /////////////////////// */}
+
 
                 <label className="inline-flex items-center">
                     <input
@@ -62,7 +76,7 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">300</span>
                 </label>
-                {/* ///////////////// */}
+
 
                 <label className="inline-flex items-center">
                     <input
@@ -75,7 +89,7 @@ const LevelSelect = () => {
                     />
                     <span className="ml-2">400</span>
                 </label>
-                {/* ////////////////////// */}
+
 
                 <label className="inline-flex items-center">
                     <input
@@ -91,12 +105,13 @@ const LevelSelect = () => {
 
             </div>
 
-            <div>
-                <Link className="flex justify-center py-20" href="/SemesterSelect">
-                    <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                        Next
-                    </button>
-                </Link>
+            <div className="flex justify-center py-10">
+
+                <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg " disabled={isNextButtonDisabled}
+                    onClick={handleNextButtonClick}>
+                    Next
+                </button>
+
             </div>
         </div>
     );

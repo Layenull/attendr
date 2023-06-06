@@ -2,12 +2,13 @@ import React from 'react'
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
 import Link from 'next/link'
 import DeptCard from '@/components/DeptCard'
+import Searchbar from '@/components/Searchbar'
 
 
 
 const DepartmentSelect = () => {
     return (
-        <div className="bg-gradblue bg-cover bg-center bg-no-repeat h-screen ">
+        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
             <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/FacultySelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' link="/FacultySelect" />
@@ -16,6 +17,8 @@ const DepartmentSelect = () => {
                 <h1 className="font-extrabold text-3xl relative w-56 bottom-5 px-6 text">Select your Department</h1>
 
             </div>
+
+
 
 
 

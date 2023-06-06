@@ -2,6 +2,9 @@ import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import customButton from '@/components/customButton'
 import Link from 'next/link'
+import Image from 'next/image'
+import { HiOutlineArrowNarrowRight } from "react-icons/hi"
+import Searchbar from '@/components/Searchbar'
 
 
 
@@ -18,26 +21,37 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className=' overflow-hidden  bg-white px-10 md:px-20 lg:px-40'>
-        <h1 className='font-extrabold text-3xl relative w-56 top-5 px-6 py-5'>Welcome to Attendr</h1>
-        {/* /////////////////// */}
-        <div className='flex flex-col justify-center py-52 '>
-          <p className=' text-3xl font-semibold'>Your Trinity university student attendance management companion</p>
-          <p className='text-2xl py-5'>Click continue to register</p>
+      <main className='  bg-white px-10 md:px-20 lg:px-40'>
+
+        <div className='flex'>
+          <h1 className='font-bold text-5xl relative top-5 py-5'>Welcome </h1>
+
+          <HiOutlineArrowNarrowRight className=' relative top-11 left-11 text-5xl' link="/FacultySelect" />
+
         </div>
 
-        <div className='relative top-9 left-11'>
+        {/* /////////////////// */}
+        <div className=' pt-52 '>
           <div>
-            <Link href="/Signup">
-              <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
-                Continue
-              </button>
-            </Link>
-            {/* <Link href="/LevelSelect" passHref>
-
-                            </Link> */}
+            <Image src="/trinitylogo.png" width={500} height={500} alt='logo' />
           </div>
         </div>
+
+
+
+        <Link href="/Signup" className='flex justify-center relative top-60'>
+          <button type="submit" className=" border-none bg-customBlue w-4/5 py-5 rounded-lg text-white text-lg ">
+            Continue
+          </button>
+        </Link>
+
+
+
+
+
+
+
+
 
 
 
