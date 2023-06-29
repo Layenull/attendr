@@ -25,7 +25,7 @@ const LevelSelect = () => {
     };
 
     return (
-        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+        <div className="bg-graduation  bg-cover bg-center bg-no-repeat h-screen ">
 
             <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/ProgramSelect">

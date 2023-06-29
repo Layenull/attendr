@@ -8,7 +8,8 @@ import Searchbar from '@/components/Searchbar'
 
 const DepartmentSelect = () => {
     return (
-        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+        // <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+        <div className="bg-graduation bg-cover bg-center bg-no-repeat h-screen ">
             <div className='flex flex-col justify-evenly relative top-10'>
                 <Link href="/FacultySelect">
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' link="/FacultySelect" />

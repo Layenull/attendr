@@ -3,7 +3,7 @@ import { useState, useEffect } from 'react';
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
 import 'react-circular-progressbar/dist/styles.css';
 
-const TrackCard = ({ progressValue = 55 }) => {
+const TrackCard = ({ progressValue = 66 }) => {
     const [progress, setProgress] = useState(0);
 
     useEffect(() => {
