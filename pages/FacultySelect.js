@@ -8,7 +8,9 @@ import Link from 'next/link'
 
 const FacultySelect = () => {
     return (
-        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+        // <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+
+        <div className="bg-graduation bg-cover bg-center bg-no-repeat h-screen ">
             {/* <div className='overflow-hidden flex flex-col justify-center bg-center bg-full '> */}
 
             <div className='flex flex-col justify-evenly relative top-10'>
@@ -44,22 +46,11 @@ const FacultySelect = () => {
 
 
             </div>
-
             {/* End-Faculty-selection-cards */}
 
 
+
         </div>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

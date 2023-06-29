@@ -192,19 +192,3 @@ export default function Signup() {
 
     );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

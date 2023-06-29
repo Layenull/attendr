@@ -8,7 +8,7 @@ import Searchbar from '@/components/Searchbar'
 
 const ProgramSelect = () => {
     return (
-        <div className="bg-gradient-to-t from-slate-900 to-sky-500 bg-cover bg-center bg-no-repeat h-screen ">
+        <div className="bg-graduation  bg-cover bg-center bg-no-repeat h-screen ">
             {/* <Image src={backgroundImage} cover fill alt="Background Image" /> */}
 
             <div className='flex flex-col justify-evenly relative top-10'>

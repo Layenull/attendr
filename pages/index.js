@@ -33,7 +33,7 @@ export default function Home() {
         {/* /////////////////// */}
         <div className=' pt-52 '>
           <div>
-            <Image src="/trinitylogo.png" width={500} height={500} alt='logo' />
+            <Image src="/trinity-logo.jpg" width={500} height={500} alt='logo' />
           </div>
         </div>
 
@@ -44,22 +44,6 @@ export default function Home() {
             Continue
           </button>
         </Link>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

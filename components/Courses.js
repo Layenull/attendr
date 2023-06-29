@@ -46,12 +46,12 @@ const Courses = () => {
                         onChange={() => handleOptionSelect("100")} // Call the handleOptionSelect function on change
                     />
                     <div className='ml-4 inline-flex flex-col'>
-                        <span className="text-slate-100 text-xl -mb-3">CSC 221</span>
+                        <span className=" text-customBlue text-xl -mb-3">CSC 221</span>
                         <span className="text-xl font-bold mt-1">Computer Programming</span>
                     </div>
                 </label>
 
-                {/* Add other radio options here using the same pattern */}
+
 
                 <div className='flex justify-center pt-72 relative left-9'>
                     <button type="submit" className="border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
