@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import React, { useContext } from 'react';
 import Image from 'next/image';
 import { HiOutlineLockClosed } from 'react-icons/hi';
 import { CiMail } from 'react-icons/ci';
@@ -6,13 +7,15 @@ import { CiUser } from "react-icons/ci";
 import { HiOutlineAcademicCap } from "react-icons/hi"
 import { useRouter } from 'next/router';
 import Link from 'next/link';
+import userContext from '@/context/userContext';
 
 
 export default function Signup() {
-    const [userName, setUserName] = useState('');
-    const [email, setEmail] = useState('');
-    const [matricNo, setMatricNo] = useState('');
-    const [password, setPassword] = useState('');
+    // const [userName, setUserName] = useState('');
+    // const [email, setEmail] = useState('');
+    // const [matricNo, setMatricNo] = useState('');
+    // const [password, setPassword] = useState('');
+    const { user, setUser } = useContext(userContext);
     const [error, setError] = useState('');
     const router = useRouter();
 
@@ -21,7 +24,7 @@ export default function Signup() {
         e.preventDefault();
 
         // Perform form validation
-        if (!userName || !email || !matricNo || !password) {
+        if (!user.username || !user.email || !user.matriculation_no || !user.password) {
             setError('Please fill in all the fields.');
             return;
         }
@@ -29,8 +32,45 @@ export default function Signup() {
         // Clear any previous error message
         setError('');
 
-        // Navigate to the next page
-        router.push('/FacultySelect');
+        // connect to backend
+        fetch('http://localhost:3009/api/v1/user/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(user),
+            // ({
+            //     username: userName,
+            //     matriculation_no: matricNo,
+            //     password,
+            //     email,
+            //     // Add other fields as needed
+            // }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.token) {
+                    // The user was registered successfully
+                    // Navigate to the next page
+                    router.push('/FacultySelect');
+                } else {
+                    // There was an error registering the user
+                    // Show an error message
+                    setError(data.message);
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+                // There was an error making the request
+                // Show an error message
+                setError('An error occurred. Please try again.');
+            });
+
+
+
+
+        // // Navigate to the next page
+        // router.push('/FacultySelect');
     };
 
 
@@ -62,8 +102,8 @@ export default function Signup() {
                                     type="text"
                                     name="Username"
                                     id="username"
-                                    value={userName}
-                                    onChange={(e) => setUserName(e.target.value)}
+                                    value={user.username}
+                                    onChange={(e) => setUser({ ...user, username: e.target.value })}
                                     className="block pl-10 sm:text-sm border-none py-2 w-auto "
                                     placeholder="Username"
                                     required
@@ -85,8 +125,8 @@ export default function Signup() {
                                     type="email"
                                     name="email"
                                     id="email"
-                                    value={email}
-                                    onChange={(e) => setEmail(e.target.value)}
+                                    value={user.email}
+                                    onChange={(e) => setUser({ ...user, email: e.target.value })}
                                     className="block pl-10 sm:text-sm border-none py-2 w-auto"
                                     placeholder="Email address"
                                     required
@@ -107,8 +147,8 @@ export default function Signup() {
                                     type="matric-no"
                                     name="matric-no"
                                     id="matric-no"
-                                    value={matricNo}
-                                    onChange={(e) => setMatricNo(e.target.value)}
+                                    value={user.matriculation_no}
+                                    onChange={(e) => setUser({ ...user, matriculation_no: e.target.value })}
                                     className="block pl-10 sm:text-sm border-none  py-2 w-auto"
                                     placeholder="matric no"
                                     required
@@ -130,8 +170,8 @@ export default function Signup() {
                                     type="password"
                                     name="password"
                                     id="password"
-                                    value={password}
-                                    onChange={(e) => setPassword(e.target.value)}
+                                    value={user.password}
+                                    onChange={(e) => setUser({ ...user, password: e.target.value })}
                                     className=" block pl-10 sm:text-sm border-none py-2 w-auto "
                                     placeholder="Password"
                                     required
@@ -192,3 +232,19 @@ export default function Signup() {
 
     );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

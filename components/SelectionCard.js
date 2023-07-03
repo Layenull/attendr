@@ -3,10 +3,11 @@ import Link from 'next/link'
 
 
 
-const SelectionCard = ({ text, bgImage, link }) => {
+const SelectionCard = ({ text, bgImage, link, onClick }) => {
     return (
 
-        <div className={` bg-slate-50 rounded-2xl border w-11/12 h-60 overflow-hidden bg-cover  ${bgImage}`}>
+        <div className={` bg-slate-50 rounded-2xl border w-11/12 h-60 overflow-hidden bg-cover  ${bgImage}`}
+            onClick={onClick}>
             <Link href={link}>
 
                 <div className="p-6">
