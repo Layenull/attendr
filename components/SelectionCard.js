@@ -1,21 +1,34 @@
 import React from 'react'
-import Link from 'next/link'
+// import Link from 'next/link'
+import { useRouter } from 'next/router';
 
 
 
-const SelectionCard = ({ text, bgImage, link, onClick }) => {
+
+const SelectionCard = ({ text, bgImage, route, onClick }) => {
+    const router = useRouter();
+
+    const handleClick = () => {
+        if (route) {
+            router.push(route);
+        }
+        if (onClick) {
+            onClick();
+        }
+    };
+
     return (
-
         <div className={` bg-slate-50 rounded-2xl border w-11/12 h-60 overflow-hidden bg-cover  ${bgImage}`}
-            onClick={onClick}>
-            <Link href={link}>
+            onClick={handleClick}>
+            {/* <Link href={link}> */}
 
-                <div className="p-6">
-                    <p className="text-2xl  mb-4">{text}</p>
+            <div className="p-6">
+                <p className="text-2xl  mb-4">{text}</p>
 
-                </div>
-            </Link>
+            </div>
+            {/* </Link> */}
         </div>
+
 
 
 

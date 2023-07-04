@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useContext } from 'react';
 import userContext from '@/context/userContext';
 import SelectionCard from '@/components/SelectionCard'
-import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
-import Link from 'next/link'
+import { useRouter } from 'next/router';
+// const router = useRouter();
 
 
 
@@ -10,6 +10,7 @@ import Link from 'next/link'
 const FacultySelect = () => {
     const { user, setUser } = useContext(userContext);
     const [faculties, setFaculties] = useState([]);
+    const router = useRouter();
 
     useEffect(() => {
         fetchFaculties();
@@ -34,8 +35,11 @@ const FacultySelect = () => {
     const handleFacultySelect = (faculty) => {
         setUser({
             ...user,
-            faculty,
+            faculty: faculty._id,
         });
+        // Navigate to the DepartmentSelect page using the route
+        router.push('/DepartmentSelect');
+
     };
 
 
@@ -44,9 +48,7 @@ const FacultySelect = () => {
 
         <div className="bg-graduation bg-cover bg-center bg-no-repeat h-screen ">
             <div className='flex flex-col justify-evenly relative top-10'>
-                <Link href="/Signup">
-                    <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
-                </Link>
+
                 <h1 className="font-extrabold text-3xl relative w-56 bottom-4 px-6 text">Select your Faculty</h1>
             </div>
 
@@ -54,7 +56,7 @@ const FacultySelect = () => {
                 {faculties.length > 0 ? (
                     faculties.map((faculty) => (
                         <div className='flex justify-center' key={faculty._id}>
-                            <SelectionCard text={faculty.name} bgImage="bg-scientist" link="/DepartmentSelect" onClick={() => handleFacultySelect(faculty.name)} />
+                            <SelectionCard text={faculty.name} bgImage="bg-scientist" onClick={() => handleFacultySelect(faculty)} />
                         </div>
                     ))
                 ) : (

@@ -1,7 +1,7 @@
-import React from 'react'
 import { createContext, useState, useEffect } from 'react';
 
 const userContext = createContext();
+// export const UserContext = createContext();
 
 export const UserProvider = ({ children }) => {
     const [user, setUser] = useState({
