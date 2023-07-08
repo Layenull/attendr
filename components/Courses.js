@@ -2,128 +2,93 @@ import React from 'react'
 import { useState } from 'react';
 import { useRouter } from 'next/router';
 
-const Courses = () => {
+const Courses = ({ programme, level, semester }) => {
+    const [courses, setCourses] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
+    const [errorMessage, setErrorMessage] = useState(null);
+    const { user, setUser } = useContext(userContext);
     const router = useRouter();
 
-    // Function to handle radio option selection
+    useEffect(() => {
+        fetch(`http://localhost:3009/api/v1/courses?programme=${programme}&level=${level}&semester=${semester}`)
+            .then(response => response.json())
+            .then(data => setCourses(data))
+            .catch(error => console.error('Error:', error));
+    }, [programme, level, semester]);
+
     const handleOptionSelect = (value) => {
         if (selectedOptions.includes(value)) {
-            // If the option is already selected, remove it from the selected options
             setSelectedOptions(selectedOptions.filter((option) => option !== value));
         } else {
-            // If the option is not selected, add it to the selected options
             setSelectedOptions([...selectedOptions, value]);
         }
     };
 
-    // Function to handle form submission
     const handleSubmit = (e) => {
         e.preventDefault();
 
         if (selectedOptions.length >= 1) {
-            // If at least 5 options are selected, navigate to the next page using Next Router
-            // Replace the '/next-page' with your desired route
-            router.push('/AttendanceTracker');
+            setUser({
+                ...user,
+                courses: selectedOptions,
+            });
+
+            fetch('http://localhost:3009/api/v1/register', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    ...user,
+                    courses: selectedOptions,
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        router.push('/AttendanceTracker');
+                    } else {
+                        console.error(data.message);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
         } else {
-            // If less than 5 options are selected, show an error or perform any other desired action
-            console.log('Please select at least 5 options');
+            setErrorMessage('Please select at least 1 course');
+            setTimeout(() => {
+                setErrorMessage(null);
+            }, 3000);
         }
     };
 
 
+
+
     return (
         <div className='flex space-x-5 justify-center'>
-            {/* The course div */}
-            <div>
-                <h4 className='font-bold text-xl pl-7'>COURSES</h4>
-
-                <label className="inline-flex items-center py-2">
-                    <input
-                        type="checkbox" // Change the input type to checkbox
-                        className="form-checkbox"
-                        checked={selectedOptions.includes("100")} // Check if the option is selected
-                        onChange={() => handleOptionSelect("100")} // Call the handleOptionSelect function on change
-                    />
-                    <div className='ml-4 inline-flex flex-col'>
-                        <span className=" text-customBlue text-xl -mb-3">CSC 221</span>
-                        <span className="text-xl font-bold mt-1">Computer Programming</span>
-                    </div>
-                </label>
-
-
-
-                <div className='flex justify-center pt-72 relative left-9'>
-                    <button type="submit" className="border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
-                        Next
-                    </button>
+            {courses.map((course) => (
+                <div key={course._id}>
+                    <h4 className='font-bold text-xl pl-7'>{course.code}</h4>
+                    <label className="inline-flex items-center py-2">
+                        <input
+                            type="checkbox"
+                            className="form-checkbox"
+                            onChange={() => handleCourseSelect(course)}
+                        />
+                        <div className='ml-4 inline-flex flex-col'>
+                            <span className="text-customBlue text-xl -mb-3">{course.code}</span>
+                            <span className="text-xl font-bold mt-1">{course.units} units</span>
+                        </div>
+                    </label>
                 </div>
+            ))}
+            {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+            <div className='flex justify-center pt-72 relative left-9'>
+                <button type="submit" className="border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
+                    Next
+                </button>
             </div>
-            {/* END COURSE div */}
-
-            {/* The UNIT div */}
-            <div className='inline-flex flex-col items-center'>
-                <h4 className='font-bold text-xl'>UNITS</h4>
-                <span className='text-2xl font-semibold py-6'>3</span>
-            </div>
-            {/* END UNIT div */}
         </div>
-        // <div className='flex space-x-5 justify-center'>
 
-        //     {/* The course div */}
-        //     <div>
-        //         <h4 className=' font-bold text-xl pl-7'>COURSES</h4>
-
-        //         <label className="inline-flex items-center py-2">
-        //             <input
-        //                 type="radio"
-        //                 className="form-radio "
-        //                 name="radio-options"
-        //                 value="100"
-        //             />
-        //             <div className=' ml-4 inline-flex flex-col'>
-
-        //                 <span className=" text-slate-100 text-xl -mb-3">CSC 221</span>
-        //                 <span className="text-xl font-bold mt-1">Computer Programming</span>
-
-        //             </div>
-        //         </label>
-
-
-        //         <div className='flex justify-center pt-72 	relative left-9'>
-
-        //             <button type="submit" className=" border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg ">
-        //                 Next
-        //             </button>
-
-        //         </div>
-
-        //     </div>
-        //     {/* END COURSE div */}
-
-
-
-        //     {/* The UNIT div */}
-
-        //     <div className='inline-flex flex-col items-center'>
-        //         <h4 className=' font-bold text-xl'>UNITS</h4>
-        //         <span className='text-2xl font-semibold py-6 '>3</span>
-        //     </div>
-
-
-        //     {/* END UNIT div */}
-
-
-
-
-
-
-
-
-
-
-        //     {/* <span>3</span> */}
-        // </div>
     )
 }
 

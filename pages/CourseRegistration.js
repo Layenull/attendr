@@ -15,24 +15,16 @@ const CourseRegistration = () => {
                     <HiOutlineArrowNarrowLeft className=' relative left-6 bottom-5 text-5xl' />
                 </Link>
 
-
                 <h1 className="font-extrabold text-3xl relative w-64 bottom-4 px-6 text">Register your courses</h1>
-
             </div>
 
             <div className='flex justify-center'>
-
-                <CoursesCard prgName="B.sc Computer Science" prgImg="bg-scientist" lvlName="200 Level" />
-
+                <CoursesCard prgName={user.programme.name} lvlNumber={`${user.level.code} Level`} prgImg="bg-scientist" />
             </div>
-
 
             <div className=' pt-12'>
-                <Courses />
-
+                <Courses programme={user.programme._id} level={user.level.code} semester={user.semester._id} />
             </div>
-
-
         </div>
     )
 }

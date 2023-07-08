@@ -25,7 +25,7 @@ const ProgramSelect = () => {
                 `http://localhost:3009/api/v1/programmes/${user.department}`
             );
             const data = await response.json();
-            console.log('Programmes API response:', data); // Optional: Check the response data
+            // console.log('Programmes API response:', data); // Optional: Check the response data
 
             if (data.success) {
                 setProgrammes(data.data);
