@@ -32,39 +32,8 @@ export default function Signup() {
         // Clear any previous error message
         setError('');
 
-        // connect to backend
-        fetch('http://localhost:3009/api/v1/user/register', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-            // ({
-            //     username: userName,
-            //     matriculation_no: matricNo,
-            //     password,
-            //     email,
-            //     // Add other fields as needed
-            // }),
-        })
-            .then(response => response.json())
-            .then(data => {
-                if (data.token) {
-                    // The user was registered successfully
-                    // Navigate to the next page
-                    router.push('/FacultySelect');
-                } else {
-                    // There was an error registering the user
-                    // Show an error message
-                    setError(data.message);
-                }
-            })
-            .catch((error) => {
-                console.error('Error:', error);
-                // There was an error making the request
-                // Show an error message
-                setError('An error occurred. Please try again.');
-            });
+        // Navigate to the next page
+        router.push('/FacultySelect');
 
 
 

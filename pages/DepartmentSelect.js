@@ -38,7 +38,10 @@ const DepartmentSelect = () => {
     const handleDepartmentSelect = (department) => {
         setUser({
             ...user,
-            department: department._id,
+            department: {
+                _id: department._id,
+                name: department.name,
+            }
         });
 
         router.push('/ProgramSelect');

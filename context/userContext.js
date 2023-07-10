@@ -9,6 +9,16 @@ export const UserProvider = ({ children }) => {
         email: '',
         matriculation_no: '',
         password: '',
+        programme: {
+            _id: '',
+            name: '',
+        },
+        level: {
+            code: '',
+        },
+        semester: {
+            _id: '',
+        },
         // Add other fields as needed
     });
 

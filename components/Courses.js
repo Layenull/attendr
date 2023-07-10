@@ -1,57 +1,46 @@
-import React from 'react'
-import { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react'
 import { useRouter } from 'next/router';
+import userContext from '@/context/userContext';
 
-const Courses = ({ programme, level, semester }) => {
+const Courses = ({ onSubmit }) => {
     const [courses, setCourses] = useState([]);
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [errorMessage, setErrorMessage] = useState(null);
-    const { user, setUser } = useContext(userContext);
-    const router = useRouter();
+    const { user } = useContext(userContext);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        fetch(`http://localhost:3009/api/v1/courses?programme=${programme}&level=${level}&semester=${semester}`)
-            .then(response => response.json())
-            .then(data => setCourses(data))
-            .catch(error => console.error('Error:', error));
-    }, [programme, level, semester]);
+        console.log('User department:', user.department); // Log the user's department
+        console.log('User level:', user.level); // Log the user's level
+        console.log('User semester:', user.semester); // Log the user's semester
 
-    const handleOptionSelect = (value) => {
-        if (selectedOptions.includes(value)) {
-            setSelectedOptions(selectedOptions.filter((option) => option !== value));
+
+        if (user.department && user.level && user.semester) {
+            fetch(`http://localhost:3009/api/v1/courses?department=${encodeURIComponent(user.department.name)}&level=${user.level.code}&semester=${user.semester._id}`)
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Response data:', data);
+                    setCourses(data.data);
+                    setLoading(false);
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    setLoading(false);
+                });
+        }
+    }, [user.department, user.level, user.semester]);
+
+    const handleCourseSelect = (course) => {
+        if (selectedOptions.includes(course)) {
+            setSelectedOptions(selectedOptions.filter((option) => option !== course));
         } else {
-            setSelectedOptions([...selectedOptions, value]);
+            setSelectedOptions([...selectedOptions, course]);
         }
     };
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-
+    const handleSubmit = () => {
         if (selectedOptions.length >= 1) {
-            setUser({
-                ...user,
-                courses: selectedOptions,
-            });
-
-            fetch('http://localhost:3009/api/v1/register', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    ...user,
-                    courses: selectedOptions,
-                }),
-            })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        router.push('/AttendanceTracker');
-                    } else {
-                        console.error(data.message);
-                    }
-                })
-                .catch(error => console.error('Error:', error));
+            onSubmit(selectedOptions);
         } else {
             setErrorMessage('Please select at least 1 course');
             setTimeout(() => {
@@ -60,12 +49,15 @@ const Courses = ({ programme, level, semester }) => {
         }
     };
 
+    if (loading) {
+        return <div>Loading...</div>;
+    }
 
 
 
     return (
         <div className='flex space-x-5 justify-center'>
-            {courses.map((course) => (
+            {Array.isArray(courses) && courses.map((course) => (
                 <div key={course._id}>
                     <h4 className='font-bold text-xl pl-7'>{course.code}</h4>
                     <label className="inline-flex items-center py-2">
@@ -88,6 +80,7 @@ const Courses = ({ programme, level, semester }) => {
                 </button>
             </div>
         </div>
+
 
     )
 }

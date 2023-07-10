@@ -22,7 +22,7 @@ const ProgramSelect = () => {
     const fetchProgrammes = async () => {
         try {
             const response = await fetch(
-                `http://localhost:3009/api/v1/programmes/${user.department}`
+                `http://localhost:3009/api/v1/programmes/${user.department._id}`
             );
             const data = await response.json();
             // console.log('Programmes API response:', data); // Optional: Check the response data
@@ -37,10 +37,14 @@ const ProgramSelect = () => {
         }
     };
 
-    const handleProgrammeSelect = (programmes) => {
+    const handleProgrammeSelect = (programme) => {
         setUser({
             ...user,
-            programmes,
+            programme: {
+                _id: programme._id,
+                name: programme.name,
+            },
+
         });
 
         router.push('/LevelSelect');

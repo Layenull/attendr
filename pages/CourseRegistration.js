@@ -1,13 +1,44 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { HiOutlineArrowNarrowLeft } from "react-icons/hi"
-import { useRouter } from 'next/router'
 import Link from 'next/link'
 import Courses from '@/components/Courses'
 import CoursesCard from '@/components/CoursesCard'
+import userContext from '@/context/userContext'
+import { useRouter } from 'next/router'
 
 
 
 const CourseRegistration = () => {
+    const { user, setUser } = useContext(userContext);
+    const router = useRouter();
+
+    const handleSubmit = (selectedCourses) => {
+        setUser({
+            ...user,
+            courses: selectedCourses,
+        });
+
+        fetch('http://localhost:3009/api/v1/register', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                ...user,
+                courses: selectedCourses,
+            }),
+        })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    router.push('/AttendanceTracker');
+                } else {
+                    console.error(data.message);
+                }
+            })
+            .catch(error => console.error('Error:', error));
+    };
+
     return (
         <div className='bg-graduation  bg-cover bg-center bg-no-repeat h-screen'>
             <div className='flex justify-evenly relative pt-14 right-8'>
@@ -23,7 +54,7 @@ const CourseRegistration = () => {
             </div>
 
             <div className=' pt-12'>
-                <Courses programme={user.programme._id} level={user.level.code} semester={user.semester._id} />
+                <Courses onSubmit={handleSubmit} />
             </div>
         </div>
     )
