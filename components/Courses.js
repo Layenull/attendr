@@ -39,10 +39,10 @@ const Courses = ({ onSubmit }) => {
     };
 
     const handleSubmit = () => {
-        if (selectedOptions.length >= 1) {
+        if (selectedOptions.length >= 5) {
             onSubmit(selectedOptions);
         } else {
-            setErrorMessage('Please select at least 1 course');
+            setErrorMessage('Please select at least 5 course');
             setTimeout(() => {
                 setErrorMessage(null);
             }, 3000);
@@ -56,26 +56,63 @@ const Courses = ({ onSubmit }) => {
 
 
     return (
-        <div className='flex space-x-5 justify-center'>
-            {Array.isArray(courses) && courses.map((course) => (
-                <div key={course._id}>
-                    <h4 className='font-bold text-xl pl-7'>{course.code}</h4>
-                    <label className="inline-flex items-center py-2">
-                        <input
-                            type="checkbox"
-                            className="form-checkbox"
-                            onChange={() => handleCourseSelect(course)}
-                        />
-                        <div className='ml-4 inline-flex flex-col'>
-                            <span className="text-customBlue text-xl -mb-3">{course.code}</span>
-                            <span className="text-xl font-bold mt-1">{course.units} units</span>
+        // <div className='space-x-5 justify-center'>
+        //     {Array.isArray(courses) && courses.map((course) => (
+        //         <div key={course._id}>
+        //             <h4 className='font-bold text-xl pl-7'>COURSES</h4>
+        //             <h4 className='text-customBlue text-xl pl-7'>{course.code}</h4>
+        //             <label className="inline-flex items-center py-2">
+        //                 <input
+        //                     type="checkbox"
+        //                     className="form-checkbox"
+        //                     onChange={() => handleCourseSelect(course)}
+        //                 />
+        //                 <div className='ml-4 inline-flex flex-col'>
+        //                     <span className="font-bold text-xl -mb-3">{course.name}</span>
+        //                 </div>
+        //             </label>
+
+        //             <span className="text-2xl font-semibold py-6">{course.units} units</span>
+        //         </div>
+        //     ))}
+        //     {errorMessage && <p className="text-red-500">{errorMessage}</p>}
+        //     <div className='flex justify-center pt-72 relative left-9'>
+        //         <button type="submit" className="border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
+        //             Next
+        //         </button>
+        //     </div>
+        // </div>
+
+        <div className=''>
+            <div className='flex '>
+                <div className='flex flex-col space-y-5'>
+                    <h4 className='font-bold text-xl px-6 '>COURSES</h4>
+                    {Array.isArray(courses) && courses.map((course) => (
+                        <div key={course._id} className='flex flex-col px-4 '>
+                            <h4 className='text-customBlue text-xl relative left-7 top-3'>{course.code}</h4>
+                            <label className="inline-flex items-center py-2">
+                                <input
+                                    type="checkbox"
+                                    className="form-checkbox"
+                                    onChange={() => handleCourseSelect(course)}
+                                />
+                                <div className='ml-4 inline-flex flex-col'>
+                                    <span className="font-bold text-xl -mb-3">{course.name}</span>
+                                </div>
+                            </label>
                         </div>
-                    </label>
+                    ))}
                 </div>
-            ))}
+                <div className='flex flex-col items-center'>
+                    <h4 className='font-bold text-xl '>UNITS</h4>
+                    {Array.isArray(courses) && courses.map((course) => (
+                        <span key={course._id} className=" text-2xl font-semibold pt-12">{course.units}</span>
+                    ))}
+                </div>
+            </div>
             {errorMessage && <p className="text-red-500">{errorMessage}</p>}
-            <div className='flex justify-center pt-72 relative left-9'>
-                <button type="submit" className="border-none bg-customBlue w-full py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
+            <div className='flex justify-center py-6 '>
+                <button type="submit" className="border-none bg-customBlue w-80 py-5 rounded-lg text-white text-lg" onClick={handleSubmit}>
                     Next
                 </button>
             </div>

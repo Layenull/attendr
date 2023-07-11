@@ -18,7 +18,7 @@ const CourseRegistration = () => {
             courses: selectedCourses,
         });
 
-        fetch('http://localhost:3009/api/v1/register', {
+        fetch('http://localhost:3009/api/v1/user/register', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
